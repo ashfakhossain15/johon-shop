@@ -1,0 +1,29 @@
+.card {
+
+    text-align: center;
+
+
+
+}
+.card-container{
+    position: relative;
+}
+
+
+.card img {
+    width: 250px;
+}
+
+.btn-cart {
+    width: 100%;
+    background-color: antiquewhite;
+    color: black;
+    border-radius: 0 0 8px 8px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    
+}
+.card-info{
+    padding: 20px;
+}

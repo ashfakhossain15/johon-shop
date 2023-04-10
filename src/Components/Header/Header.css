@@ -1,0 +1,27 @@
+.header {
+    background-color: #1C2B35;
+    display: flex;
+    place-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+
+}
+
+.nav-anc a {
+
+    color: aliceblue;
+    padding: 20px;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.header img {
+    width: 120px;
+    height: 80px;
+}
+
+.web-name {
+    margin-left: 50px;
+}
