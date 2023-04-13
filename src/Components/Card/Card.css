@@ -1,18 +1,18 @@
 .card {
-
-    text-align: center;
-
-
+    padding: 15px;
 
 }
-.card-container{
+
+.full-cart  {
     position: relative;
+    border: 1px solid aquamarine;
+    border-radius: 10px;
+    
+
 }
 
 
-.card img {
-    width: 250px;
-}
+.card img {}
 
 .btn-cart {
     width: 100%;
@@ -22,8 +22,5 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    
-}
-.card-info{
-    padding: 20px;
+
 }
