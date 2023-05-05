@@ -13,6 +13,7 @@ const Card = (props) => {
         <div className="p-3 mb-10">
           <div className=" card-info">
             <img src={img} alt="" />
+            
             <h2 className="text-xl transition duration-500 text-start hover:text-indigo-500">
               {name}
             </h2>
