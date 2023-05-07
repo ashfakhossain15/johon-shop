@@ -3,7 +3,7 @@ import "../Header/Header.css";
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
-    <nav className="header">
+    <nav className="header sticky top-0">
       <div className="web-name">
         <img src="/src/images/Logo.svg" alt="" />
       </div>

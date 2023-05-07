@@ -39,3 +39,6 @@
 .error-button:hover {
   background-color: #c0392b;
 }
+.error-page {
+  color: black;
+}

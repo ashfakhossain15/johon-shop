@@ -8,7 +8,7 @@ const Card = (props) => {
   const handleAddToCart = props.handleAddToCart;
 
   return (
-    <div className="transition duration-700 transform full-cart hover:bg-gray-300 hover:scale-105 hover:text-black hover:shadow-xl     hover:shadow-teal-200">
+    <div className="transition duration-700 transform full-cart hover:bg-gray-300 hover:scale-105 hover:text-black hover:shadow-xl hover:shadow-teal-200">
       <div className="flex flex-col ">
         <div className="p-3 mb-10">
           <div className=" card-info">
@@ -22,7 +22,7 @@ const Card = (props) => {
           </div>
         </div>
         <button
-          className="absolute bottom-0 block w-full transition duration-200 bg-orange-400 hover:bg-blue-500"
+          className="absolute bottom-0 block w-full transition duration-500 bg-orange-400 hover:bg-blue-500"
           onClick={() => handleAddToCart(props.product)}
         >
           Add to Cart
