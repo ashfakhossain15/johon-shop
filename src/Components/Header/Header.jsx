@@ -8,7 +8,7 @@ const Header = () => {
       <div className="web-name">
         <img src="/src/images/Logo.svg" alt="" />
       </div>
-      <div className="nav-anc">
+      <div className=" space-x-6 pr-8 flex">
         <ActiveLink to="/">Shop</ActiveLink>
         <ActiveLink to="/order">Order</ActiveLink>
         <ActiveLink to="/inventory">Inventory</ActiveLink>
