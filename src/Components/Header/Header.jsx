@@ -1,6 +1,7 @@
 import React from "react";
 import "../Header/Header.css";
 import { Link } from "react-router-dom";
+import ActiveLink from "../Active Link/ActiveLink";
 const Header = () => {
   return (
     <nav className="header sticky top-0">
@@ -8,10 +9,11 @@ const Header = () => {
         <img src="/src/images/Logo.svg" alt="" />
       </div>
       <div className="nav-anc">
-        <Link to="/">Shop</Link>
-        <Link to="/order">Order</Link>
-        <Link to="/inventory">Inventory</Link>
-        <Link to="/login">Login</Link>
+        <ActiveLink to="/">Shop</ActiveLink>
+        <ActiveLink to="/order">Order</ActiveLink>
+        <ActiveLink to="/inventory">Inventory</ActiveLink>
+        <ActiveLink to="/login">Login</ActiveLink>
+        <ActiveLink to="/register">Register</ActiveLink>
       </div>
     </nav>
   );

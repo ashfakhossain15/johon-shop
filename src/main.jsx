@@ -10,6 +10,9 @@ import Inventory from "./Components/Inventory/Inventory";
 import Login from "./Components/Login/Login";
 import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import cartProductsLoader from "./Loader/cartProductsLoader";
+import AuthProviders from "../Auth Providers/AuthProviders";
+import { Toaster } from "react-hot-toast";
+import Register from "./Components/Register/Register";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +31,10 @@ const router = createBrowserRouter([
         path: "/inventory",
         element: <Inventory />,
       },
+      {
+        path: "/register",
+        element: <Register />,
+      },
     ],
   },
   {
@@ -42,6 +49,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProviders>
+      <RouterProvider router={router} />
+      <Toaster />
+    </AuthProviders>
   </React.StrictMode>
 );

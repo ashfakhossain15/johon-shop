@@ -1,58 +1,115 @@
-import React, { useState } from "react";
-import "./Login.css";
-const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+import { useContext, useState } from "react";
+import { getAuth } from "firebase/auth";
+import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import app from "./../../../Firebase/Firebase.init";
+import { AuthContext } from "./../../../Auth Providers/AuthProviders";
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Username: ", username);
-    console.log("Password: ", password);
-  };
-  const togglePasswordVisibility = () => {
+const auth = getAuth(app);
+const Login = () => {
+  const [showPassword, setShowPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { signIn } = useContext(AuthContext);
+
+  const handleShowPassword = (e) => {
+
     setShowPassword(!showPassword);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Email:", email);
+    console.log("Password:", password);
+
+    signIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        e.target.reset();
+        toast.success("Login successful");
+      })
+      .catch((error) => {
+        console.log(error.message);
+        toast.error("Password or email incorrect");
+      });
+  };
+  const handleEmailChange = (e) => {
+    const email = e.target.value;
+    setEmail(email);
+  };
+  const handlePasswordChange = (e) => {
+    const password = e.target.value;
+    setPassword(password);
   };
 
   return (
-    <div className="login-container">
-      <h2 className="login-heading">Welcome To Ema-John Shop</h2>
-      <form onSubmit={handleSubmit} className="login-form">
-        <div className="input-container">
-          <label htmlFor="username" className="input-label">
-            Username
-          </label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-            className="input-field"
-          />
+    <div>
+      <div className="hero min-h-screen bg-base-200">
+        <div className="hero-content flex-col lg:flex-row-reverse">
+          <div className="text-center lg:text-left">
+            <h1 className="text-5xl font-bold">Login now!</h1>
+            <p className="py-6">
+              Provident cupiditate voluptatem et in. Repudiandae et a id nisi.
+            </p>
+          </div>
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <form className="card-body" onSubmit={handleSubmit}>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  value={email}
+                  onChange={handleEmailChange}
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Password</span>
+                </label>
+                <div>
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Password"
+                    value={password}
+                    onChange={handlePasswordChange}
+                    className="input focus:border-0 input-bordered relative w-full pr-9"
+                    required
+                  />
+                  <button
+                    onClick={handleShowPassword}
+                    type="button"
+                    className="absolute btn  label-text-alt bg-base-100 border-2  rounded-l-none mr-10 mt-0 py-0  right-0 "
+                  >
+                    {showPassword ? "Hide " : "Show"}
+                  </button>
+                </div>
+                <label className="label flex justify-between w-full">
+                  <a href="#" className="label-text-alt link link-hover">
+                    Forgot password?
+                  </a>
+                  <p className="label-text-alt text-right">
+                    Have no account ! Please
+                    <span>
+                      <button className="underline bg  text-blue-500">
+                        <Link to="/register">Register </Link>
+                      </button>
+                    </span>
+                  </p>
+                </label>
+              </div>
+              <div className="form-control mt-6">
+                <button className="btn btn-primary">Login</button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div className="input-container">
-          <label htmlFor="password" className="input-label">
-            Password
-          </label>
-          <input
-            type={showPassword ? "text" : "password"}
-            id="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            className="input-field"
-          />
-          <button
-            type="button"
-            onClick={togglePasswordVisibility}
-            className="show-password-button"
-          >
-            {showPassword ? "Hide" : "Show"}
-          </button>
-        </div>
-        <button type="submit" className="login-button">
-          Log In
-        </button>
-      </form>
+      </div>
     </div>
   );
 };

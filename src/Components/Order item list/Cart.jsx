@@ -1,8 +1,8 @@
 import React from "react";
 import "./Cart.css";
-const Cart = (props) => {
-  const cart = props.cart;
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+const Cart = ({ cart ,handleRemoveCart}) => {
   let total = 0;
   let totalShipping = 0;
   let quantity = 0;
@@ -22,6 +22,13 @@ const Cart = (props) => {
         <p className="p-2">Total Shipping : {totalShipping}</p>
         <p className="p-2">Total Tax :{tax.toFixed(2)}</p>
         <p className="p-2 text-xl">Grand Total:${grandTotal.toFixed(2)} </p>
+        <button
+          onClick={handleRemoveCart}
+          className="bg-red-400 w-full mx-auto transition duration-500 ease-in-out hover:bg-teal-800 hover:text-white flex justify-between items-center"
+        >
+          <span>Clear Cart</span>
+          <FontAwesomeIcon className="" icon={faTrash} />
+        </button>
       </div>
     </div>
   );
