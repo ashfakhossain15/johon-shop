@@ -10,10 +10,11 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
   const { signIn } = useContext(AuthContext);
 
   const handleShowPassword = (e) => {
-
     setShowPassword(!showPassword);
   };
   const handleSubmit = (e) => {
@@ -64,7 +65,7 @@ const Login = () => {
                   name="email"
                   value={email}
                   onChange={handleEmailChange}
-                  className="input input-bordered"
+                  className="input  border-blue-300"
                   required
                 />
               </div>
@@ -78,7 +79,7 @@ const Login = () => {
                     placeholder="Password"
                     value={password}
                     onChange={handlePasswordChange}
-                    className="input focus:border-0 input-bordered relative w-full pr-9"
+                    className="input focus:border-0 border-blue-300 relative w-full pr-9"
                     required
                   />
                   <button

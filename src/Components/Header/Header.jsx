@@ -1,10 +1,9 @@
 import React from "react";
 import "../Header/Header.css";
-import { Link } from "react-router-dom";
 import ActiveLink from "../Active Link/ActiveLink";
 const Header = () => {
   return (
-    <nav className="header sticky top-0">
+    <nav className="header sticky top-0 z-[20]">
       <div className="web-name">
         <img src="/src/images/Logo.svg" alt="" />
       </div>
