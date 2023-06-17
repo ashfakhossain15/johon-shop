@@ -14,10 +14,9 @@ const Shop = () => {
       .then((data) => setProducts(data));
   }, []);
   useEffect(() => {
-    
     const storedCart = getShoppingCart();
     const saveCart = [];
-    
+
     for (const id in storedCart) {
       const addProduct = products.find((product) => product.id === id);
       if (addProduct) {
@@ -29,7 +28,6 @@ const Shop = () => {
     }
   }, [products]);
   const handleAddToCart = (product) => {
-    // const newCart = [...cart, product];
     let newCart = [];
 
     const exists = cart.find((prod) => prod.id === product.id);
@@ -57,7 +55,7 @@ const Shop = () => {
         ))}
       </div>
       <div>
-        <div className="sticky top-0">
+        <div className="sticky top-14">
           <Cart cart={cart}></Cart>
         </div>
       </div>

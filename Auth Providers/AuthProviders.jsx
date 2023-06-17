@@ -23,16 +23,15 @@ const AuthProviders = ({ children }) => {
   };
 
   useEffect(() => {
-    const unUser = (email, password) => {
-      return onAuthStateChanged(auth, (presentUser) => {
-        presentUser;
-        setUser(presentUser);
-      });
+    const unUser = onAuthStateChanged(auth, (presentUser) => {
+      setUser(presentUser);
+    });
+    return () => {
+      return unUser();
     };
-    return () => unUser();
   }, []);
 
-  const logOut = (email, password) => {
+  const logOut = () => {
     signOut(auth);
   };
 

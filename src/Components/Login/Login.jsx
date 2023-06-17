@@ -85,7 +85,7 @@ const Login = () => {
                   <button
                     onClick={handleShowPassword}
                     type="button"
-                    className="absolute btn  label-text-alt bg-base-100 border-2  rounded-l-none mr-10 mt-0 py-0  right-0 "
+                    className="absolute btn  label-text-alt bg-base-100 border-2  rounded-l-none mr-7 mt-0 py-0 border-l-2-2 border-blue-300 right-0 hover:border-2 hover:border-red-300 transition duration-300 w-16 "
                   >
                     {showPassword ? "Hide " : "Show"}
                   </button>
@@ -96,10 +96,8 @@ const Login = () => {
                   </a>
                   <p className="label-text-alt text-right">
                     Have no account ! Please
-                    <span>
-                      <button className="underline bg  text-blue-500">
-                        <Link to="/register">Register </Link>
-                      </button>
+                    <span className="ps-2">
+                      <Link to="/register">Register</Link>
                     </span>
                   </p>
                 </label>
