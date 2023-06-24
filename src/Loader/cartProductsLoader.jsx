@@ -16,7 +16,6 @@ const cartProductsLoader = async () => {
     }
   }
 
-  console.log(storedCart);
 
   // return [saveCart, products];
   return saveCart;

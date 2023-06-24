@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../Auth Providers/AuthProviders";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -11,6 +12,7 @@ const Register = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
@@ -44,10 +46,9 @@ const Register = () => {
     }
     createUser(email, password)
       .then((result) => {
-        ref.current.reset();
         const user = result.user;
         setError("");
-
+        Navigate("/shop");
         form.reset();
         setSuccess("User registration successful");
         toast.success("User registration  successful");

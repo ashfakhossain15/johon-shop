@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { getAuth } from "firebase/auth";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import app from "./../../../Firebase/Firebase.init";
 import { AuthContext } from "./../../../Auth Providers/AuthProviders";
@@ -13,6 +13,10 @@ const Login = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleShowPassword = (e) => {
     setShowPassword(!showPassword);
@@ -26,6 +30,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        navigate(from);
         e.target.reset();
         toast.success("Login successful");
       })

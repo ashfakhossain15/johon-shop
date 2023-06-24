@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Cart from "../Cart";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import ReviewItem from "../../ReviewItem/ReviewItem";
 import { deleteShoppingCart, removeFromDb } from "../../../utilities/fakedb";
 
@@ -35,8 +35,17 @@ const Order = () => {
           </div>
         </div>
 
-        <div className="mx-10 mt-12 ">
+        <div className="mx-10 pb-10  relative mt-12 ">
           <Cart cart={cart} handleRemoveCart={handleRemoveCart}></Cart>
+          <button className="absolute bottom-7 left-7 border-green-700 bg-lime-700 transform  duration-300 hover:bg-orange-400">
+            <Link
+              className="text-white hover:text-black duration-300 
+            "
+              to="/checkout"
+            >
+              Proceed CheckOut
+            </Link>
+          </button>
         </div>
       </div>
     </div>

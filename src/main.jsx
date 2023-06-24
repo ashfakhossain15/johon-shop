@@ -13,6 +13,8 @@ import cartProductsLoader from "./Loader/cartProductsLoader";
 import AuthProviders from "../Auth Providers/AuthProviders";
 import { Toaster } from "react-hot-toast";
 import Register from "./Components/Register/Register";
+import CheckOut from "./Components/CheckOut/CheckOut";
+import PrivateRoute from "../Private/PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/checkout",
+        element: (
+          <PrivateRoute>
+            <CheckOut />
+          </PrivateRoute>
+        ),
       },
     ],
   },
